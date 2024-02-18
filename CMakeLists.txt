@@ -48,9 +48,14 @@ if (ENABLE_INCLUDE_WHAT_YOU_USE)
   include(cmake/iwyu.cmake)
 endif()
 
-option(ENABLE_ADDRESS_SANITIZER "Enable AddressSanitizer" ON)
+option(ENABLE_ADDRESS_SANITIZER "Enable AddressSanitizer" OFF)
 if (ENABLE_ADDRESS_SANITIZER)
   include(cmake/asan.cmake)
+endif()
+
+option(ENABLE_THREAD_SANITIZER "Enable ThreadSanitizer" OFF)
+if (ENABLE_THREAD_SANITIZER)
+  include(cmake/tsan.cmake)
 endif()
 
 option(ENABLE_GCOV "Enable Code Coverage" ON)

@@ -12,7 +12,7 @@ target_include_directories(MyExecutable PUBLIC
 )
 
 # Link your executable with the library
-target_link_libraries(MyExecutable PRIVATE MyLibrary)
+target_link_libraries(MyExecutable PRIVATE MyLibrary pthread)
 
 # Copy the executable to bin directory
 install(TARGETS MyExecutable DESTINATION ${INSTALL_BIN_DIR})

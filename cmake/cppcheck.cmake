@@ -7,10 +7,10 @@ if (CPPCHECK_EXECUTABLE)
     COMMAND ${CPPCHECK_EXECUTABLE} --enable=all 
             --project=compile_commands.json
             --suppress=missingIncludeSystem
+            --checkers-report=cppcheck_report.txt
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Running Cppcheck on ${CMAKE_SOURCE_DIR}"
   )
 else()
   message(WARNING "CANNOT LOCATE: cppcheck")
 endif()
-

@@ -27,6 +27,7 @@
 # Custom 
 .DS_Store
 compile_commands.json
+.cache/
 
 # Dependency directories
 bld/
