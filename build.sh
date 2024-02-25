@@ -45,7 +45,6 @@ clean (){
     "./lib/"
     "./doc/"
     "./cov/"
-    "./test/lib/googletest/"
   )
 
   for directory_path in "${directory_paths[@]}"; do
@@ -89,7 +88,7 @@ setup() {
 
 build() {
   echo ===========================================================================
-  echo "BUILD: $(pwd)"
+  echo "BUILD: Building the installing the binaries"
   echo ===========================================================================
   mkdir -p bld 
   cd bld || exit
@@ -122,7 +121,7 @@ examples() {
   echo ===========================================================================
   echo "EXAMPLES: $(pwd)"
   echo ===========================================================================
-  local executable="./bin/main"
+  local executable="./bin/MyExecutable"
   if [[ -f $executable ]]; then
     $executable
   else
