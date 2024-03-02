@@ -33,6 +33,7 @@ bin/
 lib/
 doc/
 cov/
+lib64/
 include/
 test/lib/googletest/
 compile_commands.json

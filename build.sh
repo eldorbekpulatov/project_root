@@ -43,6 +43,7 @@ clean (){
     "./lib/"
     "./doc/"
     "./cov/"
+    "./lib64/"
     "./include/"
   )
 
@@ -93,8 +94,8 @@ build() {
   cd bld || exit
   cmake ..
   make -j "$(nproc 2>/dev/null || echo 8)"
-  make cppcheck
   make install 
+  make cppcheck
   make doxygen
   cd ..
 }
@@ -104,6 +105,7 @@ tests() {
   echo "TESTS: Running Google unit-tests"
   echo ===========================================================================
   export DYLD_LIBRARY_PATH=./lib/
+  export LD_LIBRARY_PATH=./lib/
   local test_executable="./bin/MyExecutableTest"
   if [[ -f "$test_executable" ]]; then
     $test_executable
@@ -117,6 +119,7 @@ coverage() {
   echo "GCOV: Running binaries and generating coverage report"
   echo ===========================================================================
   export DYLD_LIBRARY_PATH=./lib/
+  export LD_LIBRARY_PATH=./lib/
   local executable="./bin/MyExecutable"
   if [[ -f $executable ]]; then
     $executable
