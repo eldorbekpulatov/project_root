@@ -1,6 +1,7 @@
 #include <iostream> // for basic_ostream, operator<<, char_traits, endl
 
-int add(int a, int b);
+
+int some_function(int a);
 
 class Base {
 public:

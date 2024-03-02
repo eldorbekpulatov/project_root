@@ -26,15 +26,14 @@
 
 # Custom 
 .DS_Store
-compile_commands.json
 .cache/
-
-# Dependency directories
+.vscode/
 bld/
 bin/
 lib/
 doc/
 cov/
+include/
 test/lib/googletest/
-
+compile_commands.json
 

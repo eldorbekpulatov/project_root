@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include "main.h"
+#include <main.h>
+#include <mylibrary.h>
 
 // Test case for the add function
 TEST(AddTest, PositiveNumbers) {

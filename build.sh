@@ -35,16 +35,15 @@ export BuildDir="${ProjectRoot}/build"
 clean (){
   clear # clear out the screen
   echo ===========================================================================
-  echo "CLEAN: $(pwd)"
+  echo "CLEAN: Cleaning the output folders"
   echo ===========================================================================
-  echo "Cleaning output folders..."
-  # Array of file paths
   local directory_paths=(
     "./bld/"
     "./bin/"
     "./lib/"
     "./doc/"
     "./cov/"
+    "./include/"
   )
 
   for directory_path in "${directory_paths[@]}"; do
@@ -75,10 +74,10 @@ setup() {
   # install google test library 
   if [[ ! -f "${ProjectRoot}/test/lib/googletest/CMakeLists.txt" ]]
   then
-    echo "Cloning googletest -b v1.10 ..."
+    echo "Cloning googletest -b v1.14.x ..."
     rm -rf "${ProjectRoot}/test/lib/googletest" 2>/dev/null
     git clone https://github.com/google/googletest.git \
-              -b v1.10.x \
+              -b v1.14.x \
               "${ProjectRoot}/test/lib/googletest"
     echo "Cloned into ${ProjectRoot}/test/lib/googletest/"
   else
@@ -94,22 +93,18 @@ build() {
   cd bld || exit
   cmake ..
   make -j "$(nproc 2>/dev/null || echo 8)"
-  make install 
   make cppcheck
+  make install 
   make doxygen
-
-  ../bin/MyExecutable
-  make coverage
-
   cd ..
-  ln -sf bld/compile_commands.json ./
 }
 
 tests() {
   echo ===========================================================================
-  echo "TESTS: $(pwd)"
+  echo "TESTS: Running Google unit-tests"
   echo ===========================================================================
-  local test_executable="./bin/main_t"
+  export DYLD_LIBRARY_PATH=./lib/
+  local test_executable="./bin/MyExecutableTest"
   if [[ -f "$test_executable" ]]; then
     $test_executable
   else
@@ -117,13 +112,17 @@ tests() {
   fi
 }
 
-examples() {
+coverage() {
   echo ===========================================================================
-  echo "EXAMPLES: $(pwd)"
+  echo "GCOV: Running binaries and generating coverage report"
   echo ===========================================================================
+  export DYLD_LIBRARY_PATH=./lib/
   local executable="./bin/MyExecutable"
   if [[ -f $executable ]]; then
     $executable
+    cd bld || exit
+    make coverage
+    cd ..
   else
    echo "Can't find installed executable: $executable"
   fi
@@ -136,17 +135,10 @@ main() {
   header
   setup
   build
-  #tests
-  #examples
+  tests
+  coverage
+  ln -sf bld/compile_commands.json ./
 }
 
 (( $_s_ )) || main
 
-
-# rm -rf ./build
-# mkdir build
-# cd build
-# scan-build cmake ..
-# make 
-# make coverage_report
-# cd -

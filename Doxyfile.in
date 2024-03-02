@@ -1,0 +1,44 @@
+# Doxyfile.in - configuration file for Doxygen
+# Adapted from default Doxygen configuration file
+
+# Project information
+PROJECT_NAME           = "YourProject"
+PROJECT_NUMBER         = "1.0"
+PROJECT_BRIEF          = "Brief description of your project"
+PROJECT_LOGO           = ""  # Path to project logo
+
+
+# Output directory
+OUTPUT_DIRECTORY       = @PROJECT_SOURCE_DIR@/doc
+
+# Source directories
+INPUT                  = @PROJECT_SOURCE_DIR@/src
+
+# Include directories
+INCLUDE_PATH           = @PROJECT_SOURCE_DIR@/include
+
+# Exclude patterns
+EXCLUDE_PATTERNS       = */build/*
+
+# Documentation language
+OPTIMIZE_OUTPUT_FOR_C  = YES
+GENERATE_HTML          = YES
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = NO
+
+# Misc settings
+ALPHABETICAL_INDEX     = YES
+BUILTIN_STL_SUPPORT    = YES
+INLINE_SOURCES         = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+# Output format options
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+
+# HTML settings
+HTML_STYLESHEET        = ""
+
+# End of Doxyfile.in template
