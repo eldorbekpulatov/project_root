@@ -86,17 +86,24 @@ setup() {
   fi
 }
 
-build() {
+analyze() {
   echo ===========================================================================
-  echo "BUILD: Building the installing the binaries"
+  echo "CPPCHECK: Running the static analysis tools"
   echo ===========================================================================
   mkdir -p bld 
   cd bld || exit
   cmake ..
+  make cppcheck
+  cd ..
+}
+
+build() {
+  echo ===========================================================================
+  echo "BUILD: Building and installing the binaries"
+  echo ===========================================================================
+  cd bld || exit
   make -j "$(nproc 2>/dev/null || echo 8)"
   make install 
-  make cppcheck
-  make doxygen
   cd ..
 }
 
@@ -131,15 +138,26 @@ coverage() {
   fi
 }
 
+doxygen() {
+  echo ===========================================================================
+  echo "DOXYGEN: Generating documentation using Doxygen"
+  echo ===========================================================================
+  cd bld || exit
+  make doxygen
+  cd ..
+}
 
 
 main() {
   clean
   header
   setup
+  analyze
   build
   tests
   coverage
+  doxygen
+  # link the compile commands for static analysis tools
   ln -sf bld/compile_commands.json ./
 }
 
