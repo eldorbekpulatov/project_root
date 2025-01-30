@@ -1,3 +1,7 @@
+set(BUILD_GMOCK OFF CACHE BOOL "Disable GoogleMock" FORCE)  # Disable GoogleMock
+# INSTALL_GTEST OFF prevents GoogleTest from installing its static libraries (libgtest.a, libgtest_main.a) into lib/.
+set(INSTALL_GTEST OFF CACHE BOOL "Disable installation" FORCE)
+
 # make the gtest library 
 add_subdirectory(lib/googletest)
 

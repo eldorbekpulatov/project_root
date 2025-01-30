@@ -10,6 +10,10 @@ if (ENABLE_THREAD_SANITIZER)
   include(../cmake/tsan.cmake)
 endif()
 
+if (ENABLE_UB_SANITIZER)
+  include(../cmake/ubsan.cmake)
+endif()
+
 if (ENABLE_GCOV)
   include(../cmake/gcov.cmake)
 endif()

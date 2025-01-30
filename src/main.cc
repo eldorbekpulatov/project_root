@@ -19,5 +19,9 @@ int main() {
 
   delete[] array;
 
+  // undefined behavior
+  int x = std::numeric_limits<int>::max(); // Maximum value for int
+  int y = x + 1; // Undefined behavior: Overflowing beyond max int
+  
   return 0;
 }

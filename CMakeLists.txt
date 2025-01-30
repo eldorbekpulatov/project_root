@@ -27,6 +27,7 @@ option(ENABLE_DOXYGEN "Enable Doxygen" ON)
 option(ENABLE_CPPCHECK "Enable CppCheck" ON)
 option(ENABLE_THREAD_SANITIZER "Enable ThreadSanitizer" OFF)
 option(ENABLE_ADDRESS_SANITIZER "Enable AddressSanitizer" OFF)
+option(ENABLE_UB_SANITIZER "Enable UndefinedBehaviorSanitizer" OFF)
 option(ENABLE_INCLUDE_WHAT_YOU_USE "Enable Include-What-You-Use" ON)
 
 
@@ -35,6 +36,6 @@ add_subdirectory(src)
 add_subdirectory(test)
 
 
-#include(cmake/clang-format.cmake)
-#include(cmake/clang-check.cmake)
-#include(cmake/clang-tidy.cmake)
+#include(cmake/clang/clang-format.cmake)
+#include(cmake/clang/clang-check.cmake)
+#include(cmake/clang/clang-tidy.cmake)
