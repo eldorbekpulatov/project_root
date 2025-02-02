@@ -1,4 +1,4 @@
-#include "include/main.h" // for add
+#include "include/Class.h" // for add
 #include "mylibrary.h"    // for myLibraryFunction
 #include <cstdlib>        // for free, malloc
 

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <main.h>
+#include <Class.h>
 #include <mylibrary.h>
 
 // Test case for the add function

@@ -28,13 +28,13 @@
 .DS_Store
 .cache/
 .vscode/
-bld/
-bin/
-lib/
-doc/
-cov/
-lib64/
-include/
-test/lib/googletest/
+/bld/
+/bin/
+/doc/
+/cov/
+/lib/
+/lib64/
+/include/
+/test/lib/googletest/
 compile_commands.json
 
