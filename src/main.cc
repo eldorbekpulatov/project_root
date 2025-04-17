@@ -1,6 +1,7 @@
 #include "include/Class.h" // for add
 #include "mylibrary.h"    // for myLibraryFunction
 #include <cstdlib>        // for free, malloc
+#include <limits>         // for numeric_limits
 
 int some_function(int a) { return a; }
 
