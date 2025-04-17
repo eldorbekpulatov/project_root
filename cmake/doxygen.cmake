@@ -1,5 +1,5 @@
 # Configure Doxygen
-find_program(DOXYGEN_EXECUTABLE NAMES Doxygen)
+find_program(DOXYGEN_EXECUTABLE NAMES doxygen)
 if(DOXYGEN_EXECUTABLE)
     configure_file(${PROJECT_SOURCE_DIR}/Doxyfile.in 
                    ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
