@@ -8,6 +8,7 @@ Template project for CPP
 3. `sudo apt install cmake`
 4. `sudo apt install iwyu`
 5. `sudo apt install cppcheck`
-6. `sudo apt install lcov`
-7. `sudo apt install doxygen`
+6. `sudo apt install doxygen`
+7. `sudo apt install lcov`
 8. `sudo apt install graphwiz`
+9. `sudo apt install genhtml`
